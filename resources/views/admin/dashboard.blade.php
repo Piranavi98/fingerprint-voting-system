@@ -17,32 +17,39 @@
 <style>
 
 /* ========================================
-   GLOBAL BACKGROUND
+   GLOBAL BACKGROUND (CYBER SECURITY STYLE)
 ======================================== */
 body{
 min-height:100vh;
 font-family:'Segoe UI',sans-serif;
+
 background:
-linear-gradient(rgba(8,18,38,0.92), rgba(8,18,38,0.92)),
-url('https://images.unsplash.com/photo-1581093458791-9d15482442f6?auto=format&fit=crop&w=1500&q=80');
+linear-gradient(rgba(6,14,32,0.95), rgba(6,14,32,0.95)),
+url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80');
+
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
+
 color:white;
 }
+
 
 /* ========================================
    NAVBAR
 ======================================== */
 .navbar{
-backdrop-filter:blur(16px);
-background:rgba(0,0,0,0.7)!important;
+backdrop-filter:blur(18px);
+background:rgba(0,0,0,0.65)!important;
 border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .navbar-brand{
 font-weight:700;
-letter-spacing:.5px;
+letter-spacing:.7px;
+font-size:18px;
 }
+
 
 /* ========================================
    PAGE HEADER
@@ -51,64 +58,92 @@ letter-spacing:.5px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .page-title{
 font-size:26px;
 font-weight:700;
+letter-spacing:.5px;
 }
 
+
 /* ========================================
-   GLASS CARD
+   GLASS CARD (PREMIUM STYLE)
 ======================================== */
 .glass-card{
 border-radius:18px;
+
 background:rgba(255,255,255,0.07);
-backdrop-filter:blur(18px);
+
+backdrop-filter:blur(20px);
+
 border:1px solid rgba(255,255,255,0.15);
+
 color:white;
-transition:0.35s;
-box-shadow:0 10px 25px rgba(0,0,0,0.35);
+
+transition:all 0.35s ease;
+
+box-shadow:
+0 12px 30px rgba(0,0,0,0.45),
+inset 0 0 20px rgba(255,255,255,0.03);
 }
 
 .glass-card:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 45px rgba(0,0,0,0.55);
+
+transform:translateY(-8px) scale(1.02);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,0.7),
+0 0 25px rgba(0,255,200,0.25);
 }
+
 
 /* ========================================
    KPI STATS
 ======================================== */
 .stat-number{
-font-size:32px;
+font-size:34px;
 font-weight:700;
-margin-top:5px;
+margin-top:8px;
+letter-spacing:.5px;
 }
+
 
 /* ========================================
    ICON STYLE
 ======================================== */
 .card-icon{
-font-size:42px;
-margin-bottom:10px;
+font-size:44px;
+margin-bottom:12px;
+text-shadow:0 0 12px rgba(255,255,255,0.35);
 }
+
 
 /* ========================================
    STATUS ALERT
 ======================================== */
 .glass-alert{
+
 background:rgba(255,255,255,0.08);
+
 border-radius:12px;
+
 border:1px solid rgba(255,255,255,0.15);
+
+backdrop-filter:blur(10px);
+
+font-size:15px;
 }
+
 
 /* ========================================
    CHART CARD
 ======================================== */
 .chart-card{
-padding:22px;
+padding:24px;
 }
+
 
 /* ========================================
    SECTION TITLE
@@ -116,25 +151,80 @@ padding:22px;
 .section-title{
 font-size:20px;
 font-weight:600;
-margin-bottom:15px;
+margin-bottom:18px;
 opacity:.9;
+letter-spacing:.4px;
 }
+
+
+/* ========================================
+   BUTTON STYLE
+======================================== */
+.btn-primary{
+background:linear-gradient(135deg,#007bff,#00c6ff);
+border:none;
+}
+
+.btn-success{
+background:linear-gradient(135deg,#00c853,#00e676);
+border:none;
+}
+
+.btn-warning{
+background:linear-gradient(135deg,#ff9800,#ffc107);
+border:none;
+}
+
+.btn-info{
+background:linear-gradient(135deg,#00bcd4,#00e5ff);
+border:none;
+}
+
+.btn-dark{
+background:linear-gradient(135deg,#343a40,#212529);
+border:none;
+}
+
+.btn-secondary{
+background:linear-gradient(135deg,#6c757d,#495057);
+border:none;
+}
+
+.btn:hover{
+transform:scale(1.05);
+transition:.25s;
+}
+
+
+/* ========================================
+   CHART CANVAS IMPROVEMENT
+======================================== */
+canvas{
+max-height:260px;
+}
+
 
 /* ========================================
    FOOTER
 ======================================== */
 .footer{
-opacity:.6;
+opacity:.65;
 margin-top:60px;
+font-size:14px;
 }
+
 
 /* ========================================
    MOBILE
 ======================================== */
 @media(max-width:768px){
-.page-title{font-size:20px;}
+
+.page-title{font-size:21px;}
+
 .stat-number{font-size:26px;}
+
 .card-icon{font-size:34px;}
+
 }
 
 </style>

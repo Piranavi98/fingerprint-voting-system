@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\User;
 use GuzzleHttp\Client;
+use App\Mail\VoterCredentialsMail;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -173,15 +175,22 @@ public function register(Request $request)
         $role = 'voter';
     }
 
+    $plainPassword = $data['password'];
+
     User::create([
         'name'     => $data['name'],
         'email'    => $data['email'],
-        'password' => Hash::make($data['password']),
+        'password' => Hash::make($plainPassword),
         'role'     => $role
     ]);
 
+    
+    Mail::to($data['email'])->send(
+        new VoterCredentialsMail($data['name'], $data['email'], $plainPassword)
+    );
+
     return redirect()->route('login')
-        ->with('success', 'Registration successful. Please login.');
+        ->with('success', 'Registration successful. Login details sent to voter email.');
 }
 
 }

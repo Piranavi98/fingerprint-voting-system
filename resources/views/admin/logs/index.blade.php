@@ -9,31 +9,315 @@
 
 <style>
 
-/* BACKGROUND */
+/* ===============================
+   CYBER SECURITY BACKGROUND
+================================ */
 body{
     min-height:100vh;
-    background:linear-gradient(rgba(10,20,40,0.8),rgba(10,20,40,0.8)),
-    url('https://images.unsplash.com/photo-1555949963-aa79dcee981c');
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+    linear-gradient(rgba(5,10,25,0.9),rgba(5,10,25,0.9)),
+    url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b');
+
     background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
     color:white;
 }
 
-/* GLASS CARD */
+
+/* ===============================
+   PAGE TITLE
+================================ */
+h2{
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+
+/* ===============================
+   GLASS CARD
+================================ */
 .glass{
+
+    background:rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.6),
+        inset 0 0 20px rgba(255,255,255,0.03);
+
+    transition:all 0.3s ease;
+}
+
+.glass:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.8),
+        0 0 18px rgba(0,255,200,0.25);
+}
+
+
+/* ===============================
+   SECURITY STAT CARDS
+================================ */
+.glass h6{
+    opacity:0.8;
+    font-size:14px;
+}
+
+.glass h2{
+    font-weight:700;
+    margin-top:5px;
+}
+
+
+/* ===============================
+   TABLE STYLE
+================================ */
+/* ===============================
+   PROFESSIONAL SECURITY TABLE
+================================ */
+
+.table{
+    border-collapse:separate;
+    border-spacing:0 8px;
+    color:white;
+}
+
+
+/* TABLE HEADER */
+
+.table thead th{
+
+    background:rgba(0,0,0,0.55);
+
+    border:none;
+
+    padding:14px;
+
+    font-size:14px;
+
+    letter-spacing:0.5px;
+
+    text-transform:uppercase;
+
+    border-bottom:2px solid rgba(0,255,200,0.3);
+}
+
+
+/* TABLE ROW */
+
+.table tbody tr{
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    transition:all 0.25s ease;
+
+    border-radius:10px;
+}
+
+
+/* TABLE CELL */
+
+.table tbody td{
+
+    padding:14px;
+
+    border:none;
+
+    vertical-align:middle;
+}
+
+
+/* HOVER EFFECT */
+
+.table tbody tr:hover{
+
+    background:rgba(0,255,200,0.08);
+
+    transform:scale(1.01);
+
+    box-shadow:0 0 15px rgba(0,255,200,0.2);
+}
+
+
+/* ACTION COLUMN HIGHLIGHT */
+
+.table tbody td:nth-child(3){
+
+    font-weight:500;
+
+    color:#00e0ff;
+}
+
+
+/* IP ADDRESS STYLE */
+
+.table tbody td:nth-child(4){
+
+    font-family:monospace;
+
+    color:#ffc107;
+}
+
+
+/* DATE STYLE */
+
+.table tbody td:nth-child(5){
+
+    font-size:13px;
+
+    opacity:0.8;
+}
+
+/* ===============================
+   BUTTON STYLE
+================================ */
+.btn-light{
+
+    background:linear-gradient(135deg,#ffffff,#dfe9f3);
+
+    border:none;
+
+    font-weight:500;
+
+    transition:0.3s;
+}
+
+.btn-light:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+
+/* ===============================
+   PAGINATION STYLE
+================================ */
+.pagination{
+
+    justify-content:center;
+}
+
+.page-link{
+
     background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(12px);
-    border-radius:16px;
-    padding:20px;
+
+    color:white;
+
     border:1px solid rgba(255,255,255,0.15);
 }
 
-/* TABLE */
-.table{
+.page-link:hover{
+
+    background:rgba(0,255,200,0.2);
+
     color:white;
 }
 
-.table thead{
-    background:rgba(255,255,255,0.15);
+
+/* ===============================
+   MOBILE
+================================ */
+@media(max-width:768px){
+
+    h2{
+        font-size:22px;
+    }
+
+}
+
+/* ===============================
+   THREAT MONITOR PANEL
+================================ */
+
+.threat-card{
+
+    padding:25px;
+
+    transition:0.3s;
+}
+
+.threat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+
+/* STATUS DOT */
+
+.status-dot{
+
+    display:inline-block;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    margin-right:8px;
+
+    animation:pulse 1.4s infinite;
+}
+
+
+/* SAFE STATUS */
+
+.safe{
+
+    background:#00ff9c;
+
+    box-shadow:0 0 10px #00ff9c;
+}
+
+
+/* WARNING STATUS */
+
+.warning{
+
+    background:#ffc107;
+
+    box-shadow:0 0 10px #ffc107;
+}
+
+
+/* DANGER STATUS */
+
+.danger{
+
+    background:#ff3b3b;
+
+    box-shadow:0 0 12px #ff3b3b;
+}
+
+
+/* ANIMATION */
+
+@keyframes pulse{
+
+    0%{ transform:scale(1); opacity:1; }
+
+    50%{ transform:scale(1.2); opacity:0.7; }
+
+    100%{ transform:scale(1); opacity:1; }
+
 }
 
 </style>
@@ -48,22 +332,67 @@ body{
     <a href="{{ route('admin.dashboard') }}" class="btn btn-light mb-3">
         ← Back Dashboard
     </a>
+    <div class="row mb-4">
+
+    <!-- SECURITY STATUS -->
+    <div class="col-md-4">
+        <div class="glass threat-card text-center">
+
+            <h6>System Status</h6>
+
+            <h3 class="text-success">
+                <span class="status-dot safe"></span>
+                Secure
+            </h3>
+
+            <small>No threats detected</small>
+
+        </div>
+    </div>
+
+    <!-- FAILED LOGIN ALERT -->
+    <div class="col-md-4">
+        <div class="glass threat-card text-center">
+
+            <h6>Failed Login Attempts</h6>
+
+            <h3 class="text-danger">
+                <span class="status-dot danger"></span>
+                {{ $failedLogins }}
+            </h3>
+
+            <small>Suspicious activity</small>
+
+        </div>
+    </div>
+
+    <!-- AI INTRUDER DETECTION -->
+    <div class="col-md-4">
+        <div class="glass threat-card text-center">
+
+            <h6>AI Intruder Detection</h6>
+
+            <h3 class="text-warning">
+                <span class="status-dot warning"></span>
+                {{ $intruderAttempts }}
+            </h3>
+
+            <small>Keystroke anomaly detected</small>
+
+        </div>
+    </div>
+
+</div>
 
     <!-- SECURITY ALERTS -->
     <div class="row mb-4">
 
         <div class="col-md-6">
-            <div class="glass text-center">
-                <h6>Failed Logins</h6>
-                <h2 class="text-danger">{{ $failedLogins }}</h2>
-            </div>
+            
         </div>
 
         <div class="col-md-6">
-            <div class="glass text-center">
-                <h6>Intruder Attempts (AI)</h6>
-                <h2 class="text-warning">{{ $intruderAttempts }}</h2>
-            </div>
+            
         </div>
 
     </div>

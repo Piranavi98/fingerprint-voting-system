@@ -13,225 +13,293 @@
 
     <style>
 
-        /* =================================
-           SAME BACKGROUND AS VOTE PAGE
-        ================================= */
-        body {
-            min-height: 100vh;
-            font-family: 'Segoe UI', sans-serif;
+/* ================================
+   BACKGROUND (BIOMETRIC STYLE)
+================================ */
+body{
+    min-height:100vh;
+    font-family:'Segoe UI',sans-serif;
 
-            background:
-            linear-gradient(rgba(10,20,40,0.75), rgba(10,20,40,0.75)),
-            url('https://images.unsplash.com/photo-1581093458791-9d15482442f6?auto=format&fit=crop&w=1500&q=80');
+   background:
+    linear-gradient(rgba(5,10,25,0.85), rgba(5,10,25,0.85)),
+    url('https://img.freepik.com/free-vector/background-fingerprint-neon_23-2148360988.jpg?semt=ais_hybrid&w=740&q=80');
 
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 
-        /* =================================
-           SAME GLASS NAVBAR
-        ================================= */
-        .glass-navbar {
-            background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(12px);
-        }
-
-        .navbar-brand {
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        /* =================================
-           PAGE TITLE
-        ================================= */
-        .page-title {
-            font-weight: 700;
-        }
-
-        /* =================================
-           SAME GLASS CARD STYLE
-        ================================= */
-        .glass-card {
-            border-radius: 18px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            transition: 0.3s ease;
-            height: 100%;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-        }
-
-        /* =================================
-           ICON
-        ================================= */
-        .card-icon {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .muted-text {
-            opacity: 0.85;
-            font-size: 14px;
-        }
-
-        /* =================================
-           STATUS ALERT (GLASS)
-        ================================= */
-        .status-alert {
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(10px);
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-        }
-
-        /* =================================
-           MOBILE
-        ================================= */
-        @media(max-width:768px){
-            .page-title {
-                font-size: 22px;
-            }
-        }
-        #successOverlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-.success-box{
-    text-align:center;
     color:white;
-    animation: zoomIn 0.4s ease;
 }
 
-.checkmark{
-    font-size:90px;
-    color:#00ff9c;
-    margin-bottom:15px;
+
+/* ================================
+   GLASS NAVBAR
+================================ */
+.glass-navbar{
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-@keyframes zoomIn{
-    from{
-        transform:scale(0.5);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
+.navbar-brand{
+    font-weight:600;
+    letter-spacing:1px;
+    font-size:18px;
 }
-/* ===============================
-   PREMIUM SUCCESS OVERLAY
+
+
+/* ================================
+   PAGE TITLE
+================================ */
+.page-title{
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+
+/* ================================
+   GLASS CARD
+================================ */
+.glass-card{
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35),
+        inset 0 0 25px rgba(255,255,255,0.04);
+
+    transition:all 0.35s ease;
+
+    height:100%;
+}
+
+.glass-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.6),
+        0 0 25px rgba(0,255,200,0.25);
+}
+
+
+/* ================================
+   ICON
+================================ */
+.card-icon{
+
+    font-size:44px;
+
+    margin-bottom:12px;
+
+    text-shadow:0 0 12px rgba(255,255,255,0.4);
+}
+
+
+/* ================================
+   TEXT
+================================ */
+.muted-text{
+    opacity:0.85;
+    font-size:14px;
+}
+
+
+/* ================================
+   STATUS ALERT
+================================ */
+.status-alert{
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    color:white;
+}
+
+
+/* ================================
+   BUTTON STYLE
+================================ */
+
+.btn-primary{
+    background:linear-gradient(135deg,#0066ff,#00c6ff);
+    border:none;
+}
+
+.btn-success{
+    background:linear-gradient(135deg,#00c853,#00e676);
+    border:none;
+}
+
+.btn-warning{
+    background:linear-gradient(135deg,#ff9800,#ffc107);
+    border:none;
+}
+
+.btn-danger{
+    border:none;
+}
+
+
+/* ================================
+   SUCCESS OVERLAY
 ================================ */
 
 #biometricSuccess{
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(
+
+    position:fixed;
+    inset:0;
+
+    background:linear-gradient(
         135deg,
         rgba(10,20,40,0.95),
         rgba(5,10,20,0.95)
     );
-    backdrop-filter: blur(20px);
+
+    backdrop-filter:blur(25px);
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     z-index:99999;
-    animation: fadeIn 0.4s ease;
+
+    animation:fadeIn 0.4s ease;
 }
 
-/* CARD */
+
+/* ================================
+   SUCCESS CARD
+================================ */
+
 .success-card{
+
     text-align:center;
     color:white;
-    padding:50px 40px;
+
+    padding:55px 45px;
+
     border-radius:24px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(16px);
-    border:1px solid rgba(255,255,255,0.2);
-    box-shadow:0 30px 80px rgba(0,0,0,0.6);
-    animation: zoomIn 0.4s ease;
-    max-width:400px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    box-shadow:0 40px 90px rgba(0,0,0,0.7);
+
+    max-width:420px;
     width:90%;
 }
 
-/* SUCCESS CIRCLE */
+
+/* ================================
+   SUCCESS CIRCLE
+================================ */
+
 .success-circle{
+
     width:120px;
     height:120px;
+
     border-radius:50%;
+
     margin:auto;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:linear-gradient(135deg,#00ffb7,#00c3ff);
+
     box-shadow:0 0 40px rgba(0,255,180,0.6);
+
     margin-bottom:25px;
-    animation: pulse 1.5s infinite;
+
+    animation:pulse 1.5s infinite;
 }
 
-/* CHECK ICON */
 .checkmark{
+
     font-size:60px;
+
     font-weight:bold;
+
     color:white;
 }
 
-/* TEXT */
-.success-card h1{
-    font-weight:700;
-    margin-bottom:10px;
-}
 
-.success-card p{
-    opacity:0.8;
-    margin-bottom:25px;
-}
+/* ================================
+   PROGRESS BAR
+================================ */
 
-/* PROGRESS BAR */
 .progress-bar{
+
     width:100%;
     height:6px;
+
     background:rgba(255,255,255,0.2);
+
     border-radius:20px;
+
     overflow:hidden;
+
     margin-bottom:10px;
 }
 
 .progress-fill{
+
     height:100%;
+
     width:0%;
+
     background:linear-gradient(90deg,#00ffb7,#00c3ff);
 }
 
-/* ANIMATIONS */
-@keyframes zoomIn{
-    from{ transform:scale(0.7); opacity:0 }
-    to{ transform:scale(1); opacity:1 }
-}
+
+/* ================================
+   ANIMATIONS
+================================ */
 
 @keyframes fadeIn{
-    from{ opacity:0 }
-    to{ opacity:1 }
+
+    from{opacity:0}
+    to{opacity:1}
+
 }
 
 @keyframes pulse{
-    0%{ transform:scale(1) }
-    50%{ transform:scale(1.05) }
-    100%{ transform:scale(1) }
+
+    0%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    100%{transform:scale(1)}
+
 }
-    </style>
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:768px){
+
+    .page-title{
+        font-size:22px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -356,13 +424,23 @@
                 </p>
 
               @if($electionActive)
-    <button class="btn btn-secondary" disabled>
-        Results Available After Election Ends
-    </button>
+
+<button class="btn btn-secondary" disabled>
+Results Available After Election Ends
+</button>
+
+@elseif($endedElection)
+
+<a href="{{ route('voter.results.show',$endedElection->id) }}" class="btn btn-warning">
+View Results
+</a>
+
 @else
-    <a href="{{ route('voter.results') }}" class="btn btn-warning">
-        View Results
-    </a>
+
+<button class="btn btn-secondary" disabled>
+No Results Available
+</button>
+
 @endif
 
             </div>

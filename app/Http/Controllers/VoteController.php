@@ -10,39 +10,46 @@ use Illuminate\Support\Facades\DB;
 
 class VoteController extends Controller
 {
-    
+
+    // ==============================
+    // SHOW VOTING PAGE
+    // ==============================
     public function votePage()
     {
         $user = auth()->user();
+
+        // Fingerprint verification required
         if (!$user->fingerprint_verified) {
             return redirect('/voter/fingerprint')
                 ->with('error', 'Fingerprint verification required before voting.');
         }
 
-        // Get candidates for active elections only
+        // Get candidates only for ACTIVE elections
         $candidates = Candidate::with('election')
             ->whereHas('election', function ($q) {
-                $q->where('active', true);
+                $q->where('active', 1);
             })
             ->get();
 
-        // Elections already voted by this voter
+        // Elections already voted by voter
         $voterVotes = Vote::where('voter_id', $user->id)
             ->pluck('election_id')
             ->toArray();
+            
 
         return view('voter.vote', compact('candidates', 'voterVotes'));
     }
 
 
-    /**
-     * Handle vote submission
-     */
+    // ==============================
+    // CAST VOTE
+    // ==============================
     public function castVote(Request $request)
     {
+
         $user = auth()->user();
 
-        // 🔐 Fingerprint verification required
+        // Fingerprint verification required
         if (!$user->fingerprint_verified) {
             return redirect('/voter/fingerprint')
                 ->with('error', 'Fingerprint verification required before voting.');
@@ -54,11 +61,12 @@ class VoteController extends Controller
         ]);
 
         // Get candidate
-        $candidate = Candidate::findOrFail($request->candidate_id);
+        $candidate = Candidate::with('election')->findOrFail($request->candidate_id);
 
-        // Prevent voting if election not active
-        if (!$candidate->election || !$candidate->election->active) {
-            return back()->withErrors(['This election is not active.']);
+        // Check if election active
+        if (!$candidate->election || $candidate->election->active != 1) {
+            return redirect()->route('voter.dashboard')
+                ->with('error', 'This election is not active.');
         }
 
         // Prevent duplicate vote
@@ -67,7 +75,8 @@ class VoteController extends Controller
             ->exists();
 
         if ($existingVote) {
-            return back()->withErrors(['You have already voted in this election!']);
+            return redirect()->route('voter.dashboard')
+                ->with('error', 'You have already voted in this election.');
         }
 
         // =========================
@@ -80,7 +89,7 @@ class VoteController extends Controller
         ]);
 
         // =========================
-        // RESET fingerprint AFTER vote
+        // RESET fingerprint after vote
         // =========================
         $user->update([
             'fingerprint_verified' => false,
@@ -98,7 +107,16 @@ class VoteController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('voter.dashboard')
-            ->with('success', 'Vote submitted successfully!');
+        // =========================
+        // REDIRECT WITH RECEIPT DATA
+        // =========================
+        return redirect()->route('voter.receipt')
+            ->with([
+                'candidate' => $candidate->name,
+                'election'  => $candidate->election->title,
+                'time'      => now()->format('h:i A')
+            ]);
     }
+    
+
 }

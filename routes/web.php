@@ -113,8 +113,16 @@ Route::get('/fingerprint/status', function () {
         'verified' => auth()->user()->fingerprint_verified
     ]);
 })->middleware('auth');
-Route::get('/voter/results', [VoterResultController::class, 'index'])
-    ->name('voter.results');
+
+Route::get('/voter/results', [VoterResultController::class,'index'])
+->name('voter.results');
+
+Route::get('/voter/results/{id}', [VoterResultController::class,'show'])
+->name('voter.results.show');
+
+Route::get('/voter/receipt', function () {
+    return view('voter.receipt');
+})->name('voter.receipt');
 
     Route::get('/admin/logs', [SystemLogsController::class, 'index'])
     ->name('admin.logs');

@@ -129,6 +129,13 @@ body::before{
         </div>
     @endif
 
+    @if(session('success'))
+<div class="alert alert-success alert-dismissible fade show">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+@endif
+
     <!-- LOGIN FORM -->
     <form method="POST" action="{{ route('login') }}" id="loginForm" onsubmit="showLoader()">
         @csrf
